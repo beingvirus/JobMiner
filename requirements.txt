@@ -1,0 +1,8 @@
+python-dotenv
+selenium
+beautifulsoup4
+requests
+pandas
+lxml
+schedule
+pyautogui
