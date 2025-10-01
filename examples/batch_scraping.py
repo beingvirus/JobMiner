@@ -9,9 +9,14 @@ in batch and combine the results.
 import sys
 import os
 from datetime import datetime
+from pathlib import Path
 
 # Add parent directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+# Add parent directory to path - so that 
+parent_dir = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(parent_dir))
 
 from scrapers.demo_company.demo_company import DemoCompanyScraper
 
