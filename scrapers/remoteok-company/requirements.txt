@@ -1,0 +1,4 @@
+requests
+selenium
+bs4 
+chromedriver_autoinstaller
