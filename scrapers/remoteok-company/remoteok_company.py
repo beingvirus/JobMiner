@@ -4,13 +4,14 @@ RemoteOK Scraper for JobMiner.
 This scraper extracts job listings from RemoteOK.io.
 """
 
-import sys
 import os
-from typing import List, Optional
-from urllib.parse import urljoin, quote
-from selenium import webdriver
-from bs4 import BeautifulSoup
+import sys
 import time
+from typing import List, Optional
+from urllib.parse import quote, urljoin
+
+from bs4 import BeautifulSoup
+from selenium import webdriver
 
 # Add parent directory to path to import base_scraper
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))

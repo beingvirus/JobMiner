@@ -4,15 +4,16 @@ Reliance Scraper for JobMiner.
 This scraper extracts job listings from Reliance careers website.
 """
 
-import sys
 import os
+import sys
+import time
 from typing import List, Optional
-from urllib.parse import urljoin, quote
+from urllib.parse import quote, urljoin
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.support.ui import WebDriverWait
 
 # Add parent directory to path to import base_scraper
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))

@@ -2,12 +2,13 @@
 Database integration for JobMiner.
 """
 
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, Float
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
+import logging
 from datetime import datetime, timedelta
 from typing import List, Optional
-import logging
+
+from sqlalchemy import Column, DateTime, Float, Integer, String, Text, create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Session, sessionmaker
 
 from base_scraper import JobListing
 from config import get_config

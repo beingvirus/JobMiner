@@ -4,15 +4,16 @@ Infosys Scraper for JobMiner.
 This scraper extracts job listings from Infosys careers website.
 """
 
-import sys
+import json
 import os
+import re
+import sys
+import time
 from typing import List, Optional
-from urllib.parse import urljoin, quote
+from urllib.parse import quote, urljoin
+
 import requests
 from bs4 import BeautifulSoup
-import time
-import re
-import json
 
 # Add parent directory to path to import base_scraper
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
