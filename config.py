@@ -2,11 +2,12 @@
 Configuration management for JobMiner.
 """
 
-import os
 import json
+import os
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Dict, Any, Optional
-from dataclasses import dataclass, asdict
+from typing import Any, Dict, Optional
+
 from dotenv import load_dotenv
 
 # Load environment variables

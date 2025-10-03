@@ -3,13 +3,14 @@
 JobMiner CLI - Command line interface for running job scrapers.
 """
 
-import click
-import os
-import sys
 import importlib.util
 import json
+import os
+import sys
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
+import click
 
 
 def discover_scrapers() -> Dict[str, str]:

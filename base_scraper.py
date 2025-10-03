@@ -2,15 +2,16 @@
 Base scraper class for JobMiner - provides common functionality for all job site scrapers.
 """
 
-import requests
-import time
 import logging
+import time
 from abc import ABC, abstractmethod
-from typing import List, Dict, Optional
-from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Dict, List, Optional
+
+import requests
+from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
 
 
 @dataclass
