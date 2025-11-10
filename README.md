@@ -250,7 +250,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Built for the open-source community
-- Hacktoberfest 2024 participant
+- Hacktoberfest 2025 participant
 - Inspired by the need for better job market analysis tools
 
 ## 📞 Support
