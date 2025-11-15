@@ -174,7 +174,7 @@ EXAMPLE_CONFIG = {
         "delay": 2.0,
         "timeout": 30,
         "max_retries": 3,
-        "user_agent": null,
+        "user_agent": None,
         "headers": {}
     },
     "database": {
@@ -183,5 +183,5 @@ EXAMPLE_CONFIG = {
         "echo": False
     },
     "log_level": "INFO",
-    "log_file": null
+    "log_file": None
 }

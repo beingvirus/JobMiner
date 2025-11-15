@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 JobMiner CLI - Command line interface for running job scrapers.
+Enhanced with Text User Interface (TUI) for improved user experience.
 """
 
 import click
@@ -62,11 +63,25 @@ def load_scraper_class(scraper_path: str):
     raise ValueError(f"No scraper class found in {scraper_path}")
 
 
-@click.group()
+@click.group(invoke_without_command=True)
 @click.version_option(version="1.0.0")
-def cli():
-    """JobMiner - A Python-based web scraping toolkit for job listings."""
-    pass
+@click.pass_context
+def cli(ctx):
+    """
+    JobMiner - A Python-based web scraping toolkit for job listings.
+    
+    Use 'jobminer tui' for an enhanced interactive interface,
+    or use the individual commands below for scripting and automation.
+    """
+    if ctx.invoked_subcommand is None:
+        click.echo("🔍 JobMiner - Interactive Job Scraping Toolkit")
+        click.echo()
+        click.echo("Quick start options:")
+        click.echo("  jobminer_cli.py tui                    # Launch interactive TUI interface")
+        click.echo("  jobminer_cli.py list-scrapers          # List available job site scrapers")
+        click.echo("  jobminer_cli.py scrape [scraper] [term] # Run a specific scraper")
+        click.echo()
+        click.echo("For full help: jobminer_cli.py --help")
 
 
 @cli.command()
@@ -81,6 +96,48 @@ def list_scrapers():
     click.echo("Available scrapers:")
     for name, path in scrapers.items():
         click.echo(f"  • {name} ({path})")
+
+
+@cli.command()
+@click.option('--no-mouse', is_flag=True, help='Disable mouse support')
+@click.option('--debug', is_flag=True, help='Enable debug mode')
+def tui(no_mouse, debug):
+    """Launch the Enhanced Text User Interface (TUI) for interactive job scraping."""
+    try:
+        # Import TUI components
+        from tui.main_app import JobMinerTUIApp
+        
+        click.echo("🚀 Starting JobMiner Enhanced CLI...")
+        click.echo("📝 Use Ctrl+C to exit at any time")
+        click.echo("❓ Press 'h' for help once the interface loads")
+        click.echo()
+        
+        # Create and configure the TUI application
+        app = JobMinerTUIApp()
+        
+        if debug:
+            app.debug = True
+        
+        if no_mouse:
+            app.mouse_enabled = False
+        
+        # Run the application
+        app.run()
+        
+    except ImportError:
+        click.echo("❌ TUI dependencies not found. Please install them:")
+        click.echo("   pip install textual rich")
+        sys.exit(1)
+    except KeyboardInterrupt:
+        click.echo("\n👋 Thanks for using JobMiner Enhanced CLI!")
+        sys.exit(0)
+    except Exception as e:
+        click.echo(f"❌ Error starting TUI: {e}")
+        if debug:
+            import traceback
+            traceback.print_exc()
+        click.echo("💡 You can still use the traditional CLI commands")
+        sys.exit(1)
 
 
 @cli.command()

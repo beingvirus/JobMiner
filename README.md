@@ -4,10 +4,12 @@ JobMiner is a powerful Python-based web scraping toolkit for extracting and orga
 
 ## ✨ Features
 
+- **Enhanced CLI with TUI**: Interactive Text User Interface for user-friendly job scraping
 - **Modular Architecture**: Easy-to-extend scraper system with base classes
 - **Multiple Output Formats**: Export to JSON, CSV, or both
 - **Database Integration**: Optional SQLite/PostgreSQL storage with search capabilities
-- **CLI Interface**: Command-line tool for easy scraping operations
+- **Dual Interface**: Both traditional CLI and modern TUI for different use cases
+- **Real-time Progress**: Visual progress bars and status updates during scraping
 - **Configuration Management**: Flexible configuration system with environment variables
 - **Rate Limiting**: Built-in delays and respectful scraping practices
 - **Error Handling**: Comprehensive logging and error recovery
@@ -31,6 +33,17 @@ pip install -e .
 
 ### Basic Usage
 
+#### Enhanced TUI Interface (Recommended for Interactive Use)
+```bash
+# Launch interactive Text User Interface
+python jobminer_cli.py tui
+
+# TUI with options
+python jobminer_cli.py tui --no-mouse  # Disable mouse support
+python jobminer_cli.py tui --debug     # Enable debug mode
+```
+
+#### Traditional CLI (Great for Scripting)
 ```bash
 # List available scrapers
 python jobminer_cli.py list-scrapers

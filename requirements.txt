@@ -7,3 +7,5 @@ click==8.1.7
 sqlalchemy==2.0.23
 lxml==4.9.3
 fake-useragent==1.4.0
+textual==0.45.1
+rich==13.7.0
